@@ -1,5 +1,26 @@
 const listOfCols = document.querySelectorAll('.col');
 
+document.addEventListener('keydown', (event) => {
+  event.preventDefault();
+  if (event.code === 'Space') {
+    setRandomColors();
+  }
+})
+
+document.addEventListener('click', (event) => {
+  console.log(event.target.dataset);
+  const type = event.target.dataset.type;
+
+  if(type === 'lock') {
+    const node = event.target.tagName.toLowerCase() === 'i'
+    ? event.target
+    : event.target.children[0];
+
+    node.classList.toggle('fa-lock');
+    node.classList.toggle('fa-lock-open');
+  }
+})
+
 function setRandomColors() {
   listOfCols.forEach(col => {
     const nameColor = col.querySelector('.name-color');
