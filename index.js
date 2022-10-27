@@ -2,7 +2,10 @@ const listOfCols = document.querySelectorAll('.col');
 
 function setRandomColors() {
   listOfCols.forEach(col => {
-    col.style.background = generateColor();
+    const nameColor = col.querySelector('.name-color');
+    const randomColor = chroma.random();
+    col.style.background = randomColor;
+    nameColor.innerText = randomColor;
   })
 }
 
