@@ -23,9 +23,15 @@ document.addEventListener('click', (event) => {
 
 function setRandomColors() {
   listOfCols.forEach(col => {
+    const isLocked = col.querySelector('i').classList.contains('fa-lock');
     const nameColor = col.querySelector('.name-color');
     const randomColor = chroma.random();
-    const lockColor = col.querySelector('i')
+    const lockColor = col.querySelector('i');
+
+    if(isLocked) {
+      return
+    }
+
     col.style.background = randomColor;
     nameColor.innerText = randomColor;
     setTextColor(nameColor, randomColor);
