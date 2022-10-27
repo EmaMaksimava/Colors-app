@@ -13,7 +13,6 @@ body {
 }
 
 .col{
-  background: rgb(140, 205, 43);
   flex: 1;
   display: flex;
   flex-direction: column;
